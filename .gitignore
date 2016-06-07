@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/iReferU/iReferU/iReferU.UWP/bin/x86/Debug
+/iReferU/iReferU/iReferU.UWP/obj/x86/Debug
+/iReferU/iReferU/iReferU.iOS/obj/iPhone/Debug
+/iReferU/iReferU/iReferU.Droid/obj/Debug
+/iReferU/iReferU/iReferU.Droid/bin/Debug
+/iReferU/iReferU/iReferU/obj/Debug
+/iReferU/iReferU/iReferU/bin/Debug
