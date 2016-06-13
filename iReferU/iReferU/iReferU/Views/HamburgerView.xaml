@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="iReferU.Views.HamburgerView"
+             xmlns:viewmodels="clr-namespace:iReferU.ViewModels;assembly=iReferU"
+             Title="iReferU">
+  <ContentPage.BindingContext>
+    <viewmodels:HamburgerViewModel/>
+  </ContentPage.BindingContext>
+  <ContentPage.Content>    
+    <StackLayout VerticalOptions="FillAndExpand">
+      <ListView ItemsSource="{Binding HamburgerViewItems}">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <Label Text="{Binding Title}" FontSize="20" />
+            </ViewCell>            
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>
