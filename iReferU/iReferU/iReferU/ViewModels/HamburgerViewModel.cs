@@ -1,13 +1,11 @@
-﻿using iReferU.Models;
-using System;
+﻿
+using iReferU.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace iReferU.ViewModels
 {
-    public class HamburgerViewModel
+    public class HamburgerViewModel : BaseViewModel
     {
         public HamburgerViewModel()
         {
@@ -17,5 +15,10 @@ namespace iReferU.ViewModels
         }
 
         public List<HamburgerViewItem> HamburgerViewItems { get; set; } = new List<HamburgerViewItem>();
+
+        protected override async Task Loaded()
+        {
+            await Task.Yield();
+        }
     }
 }

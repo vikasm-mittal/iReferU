@@ -1,0 +1,25 @@
+﻿<Application xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:referralViews="clr-namespace:iReferU.Views.Referral;assembly=iReferU"
+             xmlns:common="clr-namespace:iReferU.Views.Common;assembly=iReferU"
+             x:Class="iReferU.App">
+  
+  <Application.Resources>
+    <ResourceDictionary>
+      <DataTemplate x:Key="TopReferralsDataTemplate">
+        <referralViews:TopReferralsView/>
+      </DataTemplate>
+      <DataTemplate x:Key="SearchReferralsDataTemplate">        
+        <referralViews:SearchReferralsView/>
+      </DataTemplate>
+      <DataTemplate x:Key="FilterReferralsDataTemplate">
+        <referralViews:FilterReferralsView/>
+      </DataTemplate>
+      <common:ReferralDataTemplateSelector x:Key="referralDataTemplateSelector"
+                TopReferralsDataTemplate="{StaticResource TopReferralsDataTemplate}"
+                SearchReferralsDataTemplate="{StaticResource SearchReferralsDataTemplate}"
+                FilterReferralsDataTemplate="{StaticResource FilterReferralsDataTemplate}" />
+    </ResourceDictionary> 
+  </Application.Resources>
+
+</Application>
