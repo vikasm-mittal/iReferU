@@ -4,39 +4,51 @@
              x:Class="iReferU.Views.Referral.TopReferralsView"
              xmlns:b="clr-namespace:Xamarin.Behaviors;assembly=Xamarin.Behaviors"
              xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Platform"
+             xmlns:conv="clr-namespace:SimpliVity.Common.Converters;assembly=iReferU"
              Title="{Binding Title}">  
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <conv:ReverseBooleanConverter x:Key="reverseBooleanConverter"/>
+    </ResourceDictionary>
+  </ContentPage.Resources>
   <b:Interaction.Behaviors>
     <b:BehaviorCollection>
       <b:EventToCommand EventName="Appearing" Command="{Binding LoadedCommand}" />
     </b:BehaviorCollection>
   </b:Interaction.Behaviors>
-  <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical">
-    <Entry Placeholder="Current Location"/>
-    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-      <Button Text="Map View" Image="mapview.png"/>
-      <Button Text="List View" Image="listview.png"/>
+  <Grid>
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical" 
+                 IsEnabled="{Binding IsLoading, Converter={StaticResource reverseBooleanConverter}}">
+      <Entry Placeholder="Current Location"/>
+      <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+        <Button Text="Map View" Image="mapview.png"/>
+        <Button Text="List View" Image="listview.png"/>
+      </StackLayout>
+      <ListView ItemsSource="{Binding ReferralItems}" Margin="10,5,10,5" 
+                HasUnevenRows="True" ItemSelected="{Binding ReferralSelected}">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <Grid>
+                <Grid.RowDefinitions>
+                  <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="Auto"/>
+                  <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image Source="listview.png" VerticalOptions="Center"/>
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Grid.Column="1">
+                  <Label Text="{Binding Title}" FontSize="Large" TextColor="#388E3C"/>
+                  <Label Text="{Binding ShortDescription}" TextColor="#536DFE"/>
+                </StackLayout>
+              </Grid>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
     </StackLayout>
-    <ListView ItemsSource="{Binding ReferralItems}" Margin="10,5,10,5" HasUnevenRows="True">
-      <ListView.ItemTemplate>
-        <DataTemplate>
-          <ViewCell>
-            <Grid>
-              <Grid.RowDefinitions>
-                <RowDefinition />
-              </Grid.RowDefinitions>
-              <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-              </Grid.ColumnDefinitions>
-              <Image Source="listview.png" VerticalOptions="Center"/>
-              <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Grid.Column="1">
-                <Label Text="{Binding Title}" FontSize="Large" TextColor="#388E3C"/>
-                <Label Text="{Binding ShortDescription}" TextColor="#536DFE"/>
-              </StackLayout>
-            </Grid>            
-          </ViewCell>
-        </DataTemplate>
-      </ListView.ItemTemplate>
-    </ListView>
-  </StackLayout>
+    <ActivityIndicator IsVisible="{Binding IsLoading}" IsRunning="{Binding IsLoading}"
+            VerticalOptions="Center" HorizontalOptions="Center" />
+  </Grid>
 </ContentPage>

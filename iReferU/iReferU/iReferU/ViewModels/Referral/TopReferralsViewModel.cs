@@ -1,5 +1,7 @@
-﻿using iReferU.Models;
+﻿using GalaSoft.MvvmLight.Command;
+using iReferU.Models;
 using iReferU.Services;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
@@ -46,15 +48,38 @@ namespace iReferU.ViewModels.Referral
 
         public ObservableCollection<ReferralItem> ReferralItems { get { return this._referralItems; } }
 
+        private ReferralItem _selectedReferral = null;
+        public ReferralItem SelectedReferral
+        {
+            get { return this._selectedReferral; }
+            set
+            {
+                this._selectedReferral = value;
+                RaisePropertyChanged(() => SelectedReferral);
+            }
+        }
+
         protected override async Task Loaded()
         {
             if (_isLoadingFirstTime)
             {
-                _isLoadingFirstTime = false;
-                var items = await ReferralItemServiceManager.DefaultInstance.GetItemsAsync();
-                foreach (var item in items)
+                try
                 {
-                    ReferralItems.Add(item);
+                    IsLoading = true;
+                    _isLoadingFirstTime = false;
+                    var items = await ReferralItemServiceManager.DefaultInstance.GetItemsAsync();
+                    foreach (var item in items)
+                    { 
+                        ReferralItems.Add(item);
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                }
+                finally
+                {
+                    IsLoading = false;
                 }
             }
         }

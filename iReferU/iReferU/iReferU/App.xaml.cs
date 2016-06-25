@@ -1,4 +1,5 @@
 ﻿using iReferU.Views;
+using Microsoft.Practices.Unity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,17 @@ namespace iReferU
 {
     public partial class App : Application
     {
+
+        public IUnityContainer Container { get; }
+
         public App()
         {
             InitializeComponent();
+
+
+            Container = new UnityContainer();
+
+            Container.RegisterType<INavigationService>
 
             // The root page of your application
             MainPage = new MainView();

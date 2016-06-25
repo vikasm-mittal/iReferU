@@ -10,6 +10,7 @@ namespace iReferU.ViewModels
 {
     public abstract class BaseViewModel : ViewModelBase
     {
+        private bool _isLoading = false;
 
         public BaseViewModel()
         {
@@ -30,5 +31,15 @@ namespace iReferU.ViewModels
         }
 
         protected abstract Task Loaded();
+
+        public bool IsLoading
+        {
+            get { return this._isLoading; }
+            set
+            {
+                this._isLoading = value;
+                RaisePropertyChanged(() => IsLoading);
+            }
+        }
     }
 }
