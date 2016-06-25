@@ -40,15 +40,18 @@
     </Compile>
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Converters\ReverseBooleanConverter.cs" />
+    <Compile Include="Interfaces\INavigationService.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\HamburgerViewItem.cs" />
     <Compile Include="Models\ReferralItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BaseServiceManager.cs" />
+    <Compile Include="Services\NavigationService.cs" />
     <Compile Include="Services\ReferralItemServiceManager.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\HamburgerViewModel.cs" />
     <Compile Include="ViewModels\Referral\FilterReferralsViewModel.cs" />
+    <Compile Include="ViewModels\Referral\ReferralDetailsViewModel.cs" />
     <Compile Include="ViewModels\Referral\ReferralsViewModel.cs" />
     <Compile Include="ViewModels\Referral\SearchReferralsViewModel.cs" />
     <Compile Include="ViewModels\Referral\TopReferralsViewModel.cs" />
@@ -62,6 +65,9 @@
     </Compile>
     <Compile Include="Views\Referral\FilterReferralsView.xaml.cs">
       <DependentUpon>FilterReferralsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Referral\ReferralDetailsView.xaml.cs">
+      <DependentUpon>ReferralDetailsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Referral\ReferralsView.xaml.cs">
       <DependentUpon>ReferralsView.xaml</DependentUpon>
@@ -130,8 +136,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Themes\" />
-    <Folder Include="ViewModels\ShopTogether\" />
-    <Folder Include="Views\ShopTogether\" />
+    <Folder Include="ViewModels\Account\" />
+    <Folder Include="Views\Account\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Referral\TopReferralsView.xaml">
@@ -174,6 +180,12 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\Referral\ReferralDetailsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.0.49\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.0.49\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
