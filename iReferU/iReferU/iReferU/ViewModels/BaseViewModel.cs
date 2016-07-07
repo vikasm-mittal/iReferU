@@ -1,5 +1,7 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using iReferU.Interfaces;
+using Microsoft.Practices.Unity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,8 +16,17 @@ namespace iReferU.ViewModels
 
         public BaseViewModel()
         {
+            //this.NavigationService = App.Container.Resolve<INavigationService>();
             LoadedCommand = new RelayCommand(async () => await Loaded());
         }
+
+        public BaseViewModel(INavigationService navigationService)
+        {
+            LoadedCommand = new RelayCommand(async () => await Loaded());
+            this.NavigationService = navigationService;
+        }
+
+        public INavigationService NavigationService { get; }
 
         public RelayCommand LoadedCommand { get; private set; }
 

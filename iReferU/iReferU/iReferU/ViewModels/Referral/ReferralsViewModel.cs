@@ -1,8 +1,10 @@
-﻿using System;
+﻿using iReferU.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Practices.Unity;
 
 namespace iReferU.ViewModels.Referral
 {
@@ -10,9 +12,9 @@ namespace iReferU.ViewModels.Referral
     {
         public ReferralsViewModel()
         {
-            TabItems.Add(new TopReferralsViewModel());
-            TabItems.Add(new SearchReferralsViewModel());
-            TabItems.Add(new FilterReferralsViewModel());
+            TabItems.Add(App.Container.Resolve<TopReferralsViewModel>());
+            TabItems.Add(App.Container.Resolve<SearchReferralsViewModel>());
+            TabItems.Add(App.Container.Resolve<FilterReferralsViewModel>());
         }
 
         public List<BaseViewModel> TabItems { get; set; } = new List<BaseViewModel>();

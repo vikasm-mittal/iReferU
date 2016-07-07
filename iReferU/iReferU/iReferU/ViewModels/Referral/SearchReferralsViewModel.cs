@@ -1,10 +1,13 @@
-﻿using System.Threading.Tasks;
+﻿using iReferU.Interfaces;
+using System.Threading.Tasks;
 
 namespace iReferU.ViewModels.Referral
 {
     public class SearchReferralsViewModel : BaseViewModel
     {
-        public SearchReferralsViewModel()
+        public SearchReferralsViewModel() { }
+
+        public SearchReferralsViewModel(INavigationService navigationService) : base(navigationService)
         {
             Title = "Search";
         }

@@ -7,7 +7,7 @@ namespace iReferU.Views.Referral
     {
         public TopReferralsView()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
     }
 }

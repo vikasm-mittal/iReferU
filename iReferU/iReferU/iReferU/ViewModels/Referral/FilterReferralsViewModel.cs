@@ -1,11 +1,12 @@
-﻿using System;
+﻿using iReferU.Interfaces;
+using System;
 using System.Threading.Tasks;
 
 namespace iReferU.ViewModels.Referral
 {
     public class FilterReferralsViewModel : BaseViewModel
     {
-        public FilterReferralsViewModel()
+        public FilterReferralsViewModel(INavigationService navigationService) : base(navigationService)
         {
             Title = "Filter";
         }

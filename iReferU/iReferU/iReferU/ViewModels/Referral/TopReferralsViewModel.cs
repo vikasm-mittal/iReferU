@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight.Command;
+using iReferU.Interfaces;
 using iReferU.Models;
 using iReferU.Services;
 using System;
@@ -6,42 +7,19 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 
+using Microsoft.Practices.Unity;
+
 namespace iReferU.ViewModels.Referral
 {
     public class TopReferralsViewModel : BaseViewModel
     {
         private bool _isLoadingFirstTime = true;
 
-        public TopReferralsViewModel()
+        public TopReferralsViewModel() { }
+
+        public TopReferralsViewModel(INavigationService navigationService) : base(navigationService)
         {
             Title = "Top";
-            //_referralItems.Add(new ReferralItem() { Title = "Title1" });
-            //_referralItems.Add(new ReferralItem() { Title = "Title2" });
-            //_referralItems.Add(new ReferralItem() { Title = "Title3" });
-            //_referralItems.Add(new ReferralItem() { Title = "Title1" });
-            //_referralItems.Add(new ReferralItem() { Title = "Title1" });
-            //_referralItems.Add(new ReferralItem() { Title = "Title1" });
-            //_referralItems.Add(new ReferralItem() { Title = "Title1" });
-            //_referralItems.Add(new ReferralItem() { Title = "Title1" });
-            //_referralItems.Add(new ReferralItem() { Title = "Title1" });
-            //_referralItems.Add(new ReferralItem() { Title = "Title1" });
-            //_referralItems.Add(new ReferralItem() { Title = "Title1" });
-            //_referralItems.Add(new ReferralItem() { Title = "Title1" });
-            //_referralItems.Add(new ReferralItem() { Title = "Title1" });
-            //_referralItems.Add(new ReferralItem() { Title = "Title1" });
-            //_referralItems.Add(new ReferralItem() { Title = "Title10" });
-            //_referralItems.Add(new ReferralItem() { Title = "Title11" });
-            //_referralItems.Add(new ReferralItem() { Title = "Title12" });
-            //_referralItems.Add(new ReferralItem() { Title = "Title13" });
-            //_referralItems.Add(new ReferralItem() { Title = "Title14" });
-            //_referralItems.Add(new ReferralItem() { Title = "Title1" });
-            //_referralItems.Add(new ReferralItem() { Title = "Title1" });
-            //_referralItems.Add(new ReferralItem() { Title = "Title1" });
-            //_referralItems.Add(new ReferralItem() { Title = "Title1" });
-            //_referralItems.Add(new ReferralItem() { Title = "Title1" });
-            //_referralItems.Add(new ReferralItem() { Title = "Title21" });
-            //_referralItems.Add(new ReferralItem() { Title = "Title31" });
-            //_referralItems.Add(new ReferralItem() { Title = "Title41" });
         }
 
         private ObservableCollection<ReferralItem> _referralItems = new ObservableCollection<ReferralItem>();
@@ -56,6 +34,13 @@ namespace iReferU.ViewModels.Referral
             {
                 this._selectedReferral = value;
                 RaisePropertyChanged(() => SelectedReferral);
+
+                if (value == null)
+                {
+                    return;
+                }
+
+                NavigationService.PushAsync(App.Container.Resolve<ReferralDetailsViewModel>());
             }
         }
 

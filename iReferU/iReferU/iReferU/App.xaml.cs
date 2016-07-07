@@ -1,4 +1,7 @@
-﻿using iReferU.Views;
+﻿using iReferU.Interfaces;
+using iReferU.Services;
+using iReferU.ViewModels.Referral;
+using iReferU.Views;
 using Microsoft.Practices.Unity;
 using System;
 using System.Collections.Generic;
@@ -12,20 +15,23 @@ namespace iReferU
 {
     public partial class App : Application
     {
-
-        public IUnityContainer Container { get; }
+        private static IUnityContainer _container = null;
+        public static IUnityContainer Container { get { return _container; } }
 
         public App()
         {
             InitializeComponent();
 
+            _container = new UnityContainer();
+            Container.RegisterType<INavigationService, NavigationService>(new ContainerControlledLifetimeManager());
 
-            Container = new UnityContainer();
-
-            Container.RegisterType<INavigationService>
+            Container.RegisterType<TopReferralsViewModel>();
+            Container.RegisterType<SearchReferralsViewModel>();
+            Container.RegisterType<FilterReferralsViewModel>();
+            Container.RegisterType<ReferralDetailsViewModel>();
 
             // The root page of your application
-            MainPage = new MainView();
+            MainPage = new MainView();            
         }
 
         protected override void OnStart()

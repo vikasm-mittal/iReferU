@@ -13,6 +13,16 @@ namespace iReferU.Views.Referral
         public ReferralsView()
         {
             InitializeComponent();
+
+            this.Children.Add(new NavigationPage(new TopReferralsView())
+            {
+                Title = "Top"
+            });
+
+            this.Children.Add(new NavigationPage(new SearchReferralsView())
+            {
+                Title = "Search"
+            });
         }
     }
 }

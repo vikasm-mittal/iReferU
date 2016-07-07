@@ -5,7 +5,12 @@
              xmlns:b="clr-namespace:Xamarin.Behaviors;assembly=Xamarin.Behaviors"
              xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Platform"
              xmlns:conv="clr-namespace:SimpliVity.Common.Converters;assembly=iReferU"
-             Title="{Binding Title}">  
+             xmlns:viewmodels="clr-namespace:iReferU.ViewModels.Referral;assembly=iReferU"
+             Title="{Binding Title}">
+  <ContentPage.BindingContext>
+    <viewmodels:TopReferralsViewModel/>
+  </ContentPage.BindingContext>
+  
   <ContentPage.Resources>
     <ResourceDictionary>
       <conv:ReverseBooleanConverter x:Key="reverseBooleanConverter"/>
@@ -25,7 +30,7 @@
         <Button Text="List View" Image="listview.png"/>
       </StackLayout>
       <ListView ItemsSource="{Binding ReferralItems}" Margin="10,5,10,5" 
-                HasUnevenRows="True" ItemSelected="{Binding ReferralSelected}">
+                HasUnevenRows="True" SelectedItem="{Binding SelectedReferral}">
         <ListView.ItemTemplate>
           <DataTemplate>
             <ViewCell>
