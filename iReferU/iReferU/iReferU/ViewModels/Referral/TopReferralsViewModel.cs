@@ -17,10 +17,24 @@ namespace iReferU.ViewModels.Referral
 
         public TopReferralsViewModel() { }
 
+        public RelayCommand<bool> SwitchViewCommand { get; private set; }
+
+        private bool _isMapView = false;
+        public bool IsMapView
+        {
+            get { return _isMapView; }
+            set
+            {
+                _isMapView = value;
+                RaisePropertyChanged(() => IsMapView);
+            }
+        }
+
         public TopReferralsViewModel(INavigationService navigationService) : base(navigationService)
         {
-            Title = "Top";
-        }
+            Title = "Referrals made easy";
+            SwitchViewCommand = new RelayCommand<bool>(x => IsMapView = x);
+        }        
 
         private ObservableCollection<ReferralItem> _referralItems = new ObservableCollection<ReferralItem>();
 

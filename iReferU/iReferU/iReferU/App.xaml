@@ -1,15 +1,34 @@
 ﻿<Application xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:referralViews="clr-namespace:iReferU.Views.Referral;assembly=iReferU"
+             xmlns:viewModels="clr-namespace:iReferU.ViewModels;assembly=iReferU"
              xmlns:common="clr-namespace:iReferU.Views.Common;assembly=iReferU"
+             xmlns:light="clr-namespace:Xamarin.Forms.Themes;assembly=Xamarin.Forms.Theme.Light"
              x:Class="iReferU.App">
-  
+
   <Application.Resources>
-    <ResourceDictionary>
-      <DataTemplate x:Key="TopReferralsDataTemplate">
+    <ResourceDictionary MergedWith="light:LightThemeResources">
+      
+      <!-- Colors -->
+
+      <Color x:Key="primaryColor">#2196F3</Color>
+      <Color x:Key="darkPrimaryColor">#1976D2</Color>
+      <Color x:Key="accentColor">#448AFF</Color>
+      <Color x:Key="primaryTextColor">#212121</Color>
+      <Color x:Key="secondaryTextColor">#757575</Color>
+      <Color x:Key="lightPrimaryColor">#BBDEFB</Color>
+      <Color x:Key="dividerColor">#BDBDBD</Color>
+      <Color x:Key="iconColor">#FFFFFF</Color>
+      
+      <!-- Colors -->      
+      
+      <!-- ViewModel Locator -->
+      <viewModels:ViewModelLocator x:Key="viewModelLocator"/>
+      
+      <!--<DataTemplate x:Key="TopReferralsDataTemplate">
         <referralViews:TopReferralsView/>
       </DataTemplate>
-      <DataTemplate x:Key="SearchReferralsDataTemplate">        
+      <DataTemplate x:Key="SearchReferralsDataTemplate">
         <referralViews:SearchReferralsView/>
       </DataTemplate>
       <DataTemplate x:Key="FilterReferralsDataTemplate">
@@ -18,8 +37,8 @@
       <common:ReferralDataTemplateSelector x:Key="referralDataTemplateSelector"
                 TopReferralsDataTemplate="{StaticResource TopReferralsDataTemplate}"
                 SearchReferralsDataTemplate="{StaticResource SearchReferralsDataTemplate}"
-                FilterReferralsDataTemplate="{StaticResource FilterReferralsDataTemplate}" />
-    </ResourceDictionary> 
+                FilterReferralsDataTemplate="{StaticResource FilterReferralsDataTemplate}" />-->
+    </ResourceDictionary>
   </Application.Resources>
 
 </Application>

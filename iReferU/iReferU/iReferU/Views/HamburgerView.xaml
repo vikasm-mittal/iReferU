@@ -8,17 +8,36 @@
   <ContentPage.BindingContext>
     <viewmodels:HamburgerViewModel/>
   </ContentPage.BindingContext>
-  <ContentPage.Content>    
-    <StackLayout VerticalOptions="FillAndExpand">
-      <ListView ItemsSource="{Binding HamburgerViewItems}" SeparatorVisibility="None">
+  <ContentPage.Content>
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height=".25*"/>
+        <RowDefinition Height="*"/>      
+      </Grid.RowDefinitions>
+      <Grid HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="{StaticResource primaryColor}">
+        <Grid.RowDefinitions>
+          <RowDefinition Height=".5*"/>
+          <RowDefinition Height=".5*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Image Source="account.png" Grid.Column="0" Grid.Row="0" HorizontalOptions="Start" VerticalOptions="End" Margin="5"/>
+        <StackLayout Grid.Column="0" Grid.Row="1" Margin="5">
+          <Label Text="Vikas Mittal" TextColor="White"/>
+          <Label Text="vikas.mittal@gmail.com" TextColor="White"/>
+        </StackLayout>
+      </Grid>
+      <ListView ItemsSource="{Binding HamburgerViewItems}" SeparatorVisibility="None" Grid.Row="1" Margin="5,5,0,5" BackgroundColor="White">
         <ListView.ItemTemplate>
           <DataTemplate>
             <ViewCell>
-              <Label Text="{Binding Title}" />
-            </ViewCell>            
+              <Label Text="{Binding Title}" TextColor="{StaticResource primaryTextColor}" />
+            </ViewCell>
           </DataTemplate>
         </ListView.ItemTemplate>
       </ListView>
-    </StackLayout>
+    </Grid>
   </ContentPage.Content>
 </ContentPage>

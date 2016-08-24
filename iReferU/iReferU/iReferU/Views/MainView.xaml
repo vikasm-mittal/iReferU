@@ -10,7 +10,7 @@
   <MasterDetailPage.Detail>
     <NavigationPage>
       <x:Arguments>
-        <referralViews:ReferralsView />
+        <referralViews:TopReferralsView />
       </x:Arguments>
     </NavigationPage>
   </MasterDetailPage.Detail>

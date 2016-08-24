@@ -3,12 +3,6 @@ using iReferU.Services;
 using iReferU.ViewModels.Referral;
 using iReferU.Views;
 using Microsoft.Practices.Unity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 
 namespace iReferU
