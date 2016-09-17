@@ -10,9 +10,11 @@ namespace iReferU.ViewModels
     {
         public HamburgerViewModel()
         { 
-            HamburgerViewItems.Add(new HamburgerViewItem() { Title = "Settings" });
-            HamburgerViewItems.Add(new HamburgerViewItem() { Title = "Referrals" });
-            HamburgerViewItems.Add(new HamburgerViewItem() { Title = "Shop Together" });            
+            HamburgerViewItems.Add(new HamburgerViewItem() { Title = "Find Referrals" });
+            HamburgerViewItems.Add(new HamburgerViewItem() { Title = "Submit a Referral" });
+            HamburgerViewItems.Add(new HamburgerViewItem() { Title = "My Referrals" });
+            HamburgerViewItems.Add(new HamburgerViewItem() { Title = "Sign in" });
+            HamburgerViewItems.Add(new HamburgerViewItem() { Title = "Sign out" });            
         }
 
         public List<HamburgerViewItem> HamburgerViewItems { get; set; } = new List<HamburgerViewItem>();

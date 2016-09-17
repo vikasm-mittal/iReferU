@@ -52,7 +52,6 @@
     <Compile Include="ViewModels\HamburgerViewModel.cs" />
     <Compile Include="ViewModels\Referral\FilterReferralsViewModel.cs" />
     <Compile Include="ViewModels\Referral\ReferralDetailsViewModel.cs" />
-    <Compile Include="ViewModels\Referral\SearchReferralsViewModel.cs" />
     <Compile Include="ViewModels\Referral\TopReferralsViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="Views\Common\ReferralDataTemplateSelector.cs" />

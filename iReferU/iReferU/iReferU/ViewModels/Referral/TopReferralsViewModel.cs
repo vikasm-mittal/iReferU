@@ -8,12 +8,13 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 
 using Microsoft.Practices.Unity;
+using System.Diagnostics;
 
 namespace iReferU.ViewModels.Referral
 {
     public class TopReferralsViewModel : BaseViewModel
     {
-        private bool _isLoadingFirstTime = true;
+        private bool _isLoadingFirstTime = false;
 
         public TopReferralsViewModel() { }
 

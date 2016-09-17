@@ -3,13 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="iReferU.Views.HamburgerView"
              xmlns:viewmodels="clr-namespace:iReferU.ViewModels;assembly=iReferU"
-             Icon="hamburger.png"
              Title="iReferU">
+    <ContentPage.Icon>
+        <OnPlatform x:TypeArguments="FileImageSource" iOS="listview.png"/>
+    </ContentPage.Icon>
   <ContentPage.BindingContext>
     <viewmodels:HamburgerViewModel/>
   </ContentPage.BindingContext>
   <ContentPage.Content>
-    <Grid>
+    <Grid BackgroundColor="{StaticResource primaryColor}">
       <Grid.RowDefinitions>
         <RowDefinition Height=".25*"/>
         <RowDefinition Height="*"/>      
@@ -29,7 +31,7 @@
           <Label Text="vikas.mittal@gmail.com" TextColor="White"/>
         </StackLayout>
       </Grid>
-      <ListView ItemsSource="{Binding HamburgerViewItems}" SeparatorVisibility="None" Grid.Row="1" Margin="5,5,0,5" BackgroundColor="White">
+      <ListView ItemsSource="{Binding HamburgerViewItems}" SeparatorVisibility="None" Grid.Row="1" BackgroundColor="White">
         <ListView.ItemTemplate>
           <DataTemplate>
             <ViewCell>

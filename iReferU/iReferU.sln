@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iReferU.Droid", "iReferU\iReferU.Droid\iReferU.Droid.csproj", "{02AFFCE2-4D73-40B3-B6B8-F25FB179DB2F}"
 EndProject
@@ -133,6 +133,7 @@ Global
 		{F846E057-E58B-42D6-B7CE-C0D5C00A1805}.Debug|iPhone.Build.0 = Debug|iPhone
 		{F846E057-E58B-42D6-B7CE-C0D5C00A1805}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
 		{F846E057-E58B-42D6-B7CE-C0D5C00A1805}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{F846E057-E58B-42D6-B7CE-C0D5C00A1805}.Debug|iPhoneSimulator.Deploy.0 = Debug|iPhoneSimulator
 		{F846E057-E58B-42D6-B7CE-C0D5C00A1805}.Debug|x64.ActiveCfg = Debug|iPhone
 		{F846E057-E58B-42D6-B7CE-C0D5C00A1805}.Debug|x86.ActiveCfg = Debug|iPhone
 		{F846E057-E58B-42D6-B7CE-C0D5C00A1805}.Release|Any CPU.ActiveCfg = Release|iPhone
@@ -187,6 +188,8 @@ Global
 		{FB42495D-9ABF-4C10-8E28-91EBFC8775BA}.Debug|ARM.Deploy.0 = Debug|ARM
 		{FB42495D-9ABF-4C10-8E28-91EBFC8775BA}.Debug|iPhone.ActiveCfg = Debug|x86
 		{FB42495D-9ABF-4C10-8E28-91EBFC8775BA}.Debug|iPhoneSimulator.ActiveCfg = Debug|x86
+		{FB42495D-9ABF-4C10-8E28-91EBFC8775BA}.Debug|iPhoneSimulator.Build.0 = Debug|x86
+		{FB42495D-9ABF-4C10-8E28-91EBFC8775BA}.Debug|iPhoneSimulator.Deploy.0 = Debug|x86
 		{FB42495D-9ABF-4C10-8E28-91EBFC8775BA}.Debug|x64.ActiveCfg = Debug|x64
 		{FB42495D-9ABF-4C10-8E28-91EBFC8775BA}.Debug|x64.Build.0 = Debug|x64
 		{FB42495D-9ABF-4C10-8E28-91EBFC8775BA}.Debug|x64.Deploy.0 = Debug|x64
