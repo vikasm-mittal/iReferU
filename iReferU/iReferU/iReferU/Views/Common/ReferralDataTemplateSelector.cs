@@ -14,10 +14,6 @@ namespace iReferU.Views.Common
             {
                 return TopReferralsDataTemplate;
             }
-            else if (item is SearchReferralsViewModel)
-            {
-                return SearchReferralsDataTemplate;
-            }
             else if (item is FilterReferralsViewModel)
             {
                 return FilterReferralsDataTemplate;

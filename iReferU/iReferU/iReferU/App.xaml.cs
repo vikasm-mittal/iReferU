@@ -20,7 +20,6 @@ namespace iReferU
             Container.RegisterType<INavigationService, NavigationService>(new ContainerControlledLifetimeManager());
 
             Container.RegisterType<TopReferralsViewModel>();
-            Container.RegisterType<SearchReferralsViewModel>();
             Container.RegisterType<FilterReferralsViewModel>();
             Container.RegisterType<ReferralDetailsViewModel>();
 

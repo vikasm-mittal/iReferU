@@ -59,6 +59,7 @@ namespace iReferU.UWP
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
                 Xamarin.Forms.Forms.Init(e);
+                Xamarin.FormsMaps.Init("ILMZ9vxXIGN7Mqo7lO3f~rpRFuW0Y424eVrrvQsTAKA~AizgZlq_OR-Kea7v7CV4mVt6O8XMt9zztQB2TQviLRbGi_NMbgHUuOUNVjGOO5KT");
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {

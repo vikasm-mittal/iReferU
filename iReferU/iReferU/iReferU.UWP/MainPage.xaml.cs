@@ -19,8 +19,7 @@ namespace iReferU.UWP
     {
         public MainPage()
         {
-            this.InitializeComponent();
-
+            this.InitializeComponent();            
             LoadApplication(new iReferU.App());
         }
     }

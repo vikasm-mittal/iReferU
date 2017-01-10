@@ -24,6 +24,7 @@ namespace iReferU.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             Xamarin.Behaviors.Infrastructure.Init();
+            Xamarin.FormsMaps.Init(this, bundle);
 
             var x = typeof(Xamarin.Forms.Themes.LightThemeResources);
             x = typeof(Xamarin.Forms.Themes.DarkThemeResources);

@@ -3,18 +3,18 @@ using iReferU.Interfaces;
 using iReferU.Models;
 using iReferU.Services;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-
+using System.Linq;
 using Microsoft.Practices.Unity;
-using System.Diagnostics;
+using Plugin.Geolocator;
+using Xamarin.Forms.Maps;
 
 namespace iReferU.ViewModels.Referral
 {
     public class TopReferralsViewModel : BaseViewModel
     {
-        private bool _isLoadingFirstTime = false;
+        private bool _isLoadingFirstTime = true;
 
         public TopReferralsViewModel() { }
 
@@ -35,6 +35,15 @@ namespace iReferU.ViewModels.Referral
         {
             Title = "Referrals made easy";
             SwitchViewCommand = new RelayCommand<bool>(x => IsMapView = x);
+
+            for (int i = 0; i < 10; i++)
+            {
+                _referralItems.Add(new ReferralItem()
+                {
+                    Title = "Dish Savings",
+                    ShortDescription = "Save 50 dollars for dish"
+                });
+            }
         }        
 
         private ObservableCollection<ReferralItem> _referralItems = new ObservableCollection<ReferralItem>();
@@ -65,6 +74,20 @@ namespace iReferU.ViewModels.Referral
             {
                 try
                 {
+
+                    var locator = CrossGeolocator.Current;
+                    locator.DesiredAccuracy = 50;
+
+                    var position = await locator.GetPositionAsync(10000);
+
+                    var geoCoder = new Geocoder();
+                    var address = await geoCoder.GetAddressesForPositionAsync(new Position(position.Latitude, position.Longitude));
+
+                    //var service = DependencyService.Get<IReverseGeocode>();
+                    //var location = await service.ReverseGeoCodeLatLonAsync(position.Latitude, position.Longitude);
+
+                    System.Diagnostics.Debug.WriteLine("---------- Location --------- :" + address.ToList().FirstOrDefault().ToString());                                       
+
                     IsLoading = true;
                     _isLoadingFirstTime = false;
                     var items = await ReferralItemServiceManager.DefaultInstance.GetItemsAsync();
